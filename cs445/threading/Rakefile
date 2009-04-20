@@ -1,3 +1,24 @@
+def pwd(path) [File.dirname(__FILE__), path].join('/'); end
+
+# Setup
+
+src_dir = pwd('src/')
+bin_dir = pwd('bin/')
+all_classes = pwd('bin/*')
+test_dir = pwd('test/')
+junit = pwd('lib/junit-4.6.jar')
+
+javac_flags = "-Xlint:deprecation -Xlint:unchecked -d #{bin_dir} -sourcepath #{src_dir}"
+javac_cmd = "javac #{javac_flags}"
+classpath_flags = %Q[-cp "#{bin_dir}:#{junit}"]
+
+# Tasks
+
 task :build do
-  sh %{find src/ -name *.java | xargs javac -Xlint:deprecation -Xlint:unchecked -d bin/ -sourcepath src/}
+  sh %{rm -fr #{all_classes}}
+  sh %{find #{src_dir} -name *.java | xargs #{javac_cmd}}
 end
+task(:build_test => :build) { sh %{find #{test_dir} -name *.java | xargs #{javac_cmd} #{classpath_flags}} }
+task(:test => :build_test) { sh %{java #{classpath_flags} gus.TestSuite} }
+
+task :default => :test

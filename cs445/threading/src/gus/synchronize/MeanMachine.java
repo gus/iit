@@ -13,12 +13,9 @@ public class MeanMachine extends Thread {
   }
 
   public void run() {
-    // try {
-      while(account.withdraw(amountToWithdraw)) {
-        printReceipt("Deducted: " + amountToWithdraw + " Remaining");
-        // Thread.sleep(10);
-      }
-    // } catch (InterruptedException e) {}
+    while(account.withdraw(amountToWithdraw)) {
+      printReceipt("Deducted: " + amountToWithdraw + " Remaining");
+    }
     printReceipt("Final");
   }
 

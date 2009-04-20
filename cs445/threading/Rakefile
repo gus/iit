@@ -1,3 +1,3 @@
 task :build do
-  sh %{find src/ -name *.java | xargs javac -Xlint:deprecation -d bin/ -sourcepath src/}
+  sh %{find src/ -name *.java | xargs javac -Xlint:deprecation -Xlint:unchecked -d bin/ -sourcepath src/}
 end

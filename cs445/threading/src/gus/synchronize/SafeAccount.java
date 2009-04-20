@@ -8,18 +8,17 @@ public class SafeAccount implements Account { // Why not just extend TcfAccount?
   }
 
   public boolean withdraw(long amount) {
-    synchronized(account) { // What does this mean?
-      return account.withdraw(amount);
-    }
+    // What does synchronized(account) mean?
+    synchronized(account) { return account.withdraw(amount); }
   }
 
   public long getBalance() {
-    return account.getBalance();
+    synchronized(account) { return account.getBalance(); }
   }
 
   public static void main (String [] args) {
     Account account = new SafeAccount(new TcfAccount(1000000));
-    MeanMachine machinea = new MeanMachine("a", account, 125000);
-    MeanMachine machineb = new MeanMachine("b", account, 250000);
+    new MeanMachine("a", account, 125000);
+    new MeanMachine("b", account, 250000);
   }
 }

@@ -24,7 +24,7 @@ public class TcfAccount implements Account {
 
   public static void main (String [] args) {
     Account account = new TcfAccount(1000000);
-    MeanMachine machinea = new MeanMachine("a", account, 125000);
-    MeanMachine machineb = new MeanMachine("b", account, 250000);
+    new MeanMachine("a", account, 125000);
+    new MeanMachine("b", account, 250000);
   }
 }

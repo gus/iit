@@ -7,10 +7,11 @@ bin_dir = pwd('bin/')
 all_classes = pwd('bin/*')
 test_dir = pwd('test/')
 junit = pwd('lib/junit-4.6.jar')
+mockito = pwd('lib/mockito-all-1.7.jar')
 
 javac_flags = "-Xlint:deprecation -Xlint:unchecked -d #{bin_dir} -sourcepath #{src_dir}"
 javac_cmd = "javac #{javac_flags}"
-classpath_flags = %Q[-cp "#{bin_dir}:#{junit}"]
+classpath_flags = %Q[-cp "#{bin_dir}:#{junit}:#{mockito}"]
 
 # Tasks
 

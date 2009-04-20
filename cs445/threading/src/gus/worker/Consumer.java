@@ -7,7 +7,12 @@ public class Consumer implements Runnable {
 
   public Consumer() {
     // How could we make this better for testing? Dependency Injection
-    this.queue = new LinkedList<String>();
+    this(new LinkedList<String>());
+  }
+
+  public Consumer(Queue<String> queue) {
+    // How could we make this better for testing? Dependency Injection
+    this.queue = queue;
   }
 
   public synchronized void run() {

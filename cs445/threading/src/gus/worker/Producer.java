@@ -13,12 +13,14 @@ public class Producer extends Thread {
   }
 
   public void run() {
+    System.out.println("started " + name);
     try {
       for (int i = 0; i < consumablesToCreate; i++) {
         sleep(i % 2);
         consumer.addConsumable(name + "-" + String.valueOf(i));
       }
     } catch (InterruptedException e) {}
+    System.out.println("stopped " + name);
   }
 
   public static void main (String [] args) {

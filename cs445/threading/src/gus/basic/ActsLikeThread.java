@@ -10,14 +10,14 @@ public class ActsLikeThread extends Thread {
   }
 
   public void run() {
+    System.out.println("started " + message);
     try {
       while(true) {
-        System.out.println(this.message);
+        System.out.println(message);
         sleep(sleepTimeMs);
       }
-    } catch (InterruptedException e) {
-      // Not doing anything yet
-    }
+    } catch (InterruptedException e) {}
+    System.out.println("stopped " + message);
   }
 
   public static void main(String [] args) {

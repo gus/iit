@@ -21,8 +21,8 @@ public class UsingAThread implements Runnable {
   }
 
   public static void main(String [] args) {
-    Thread t1 = new Thread(new UsingAThread("Hello", 500));
-    Thread t2 = new Thread(new UsingAThread("world", 250));
+    Thread t1 = new Thread(new UsingAThread("Hello", 250));
+    Thread t2 = new Thread(new UsingAThread("world", 500));
     t1.start();
     t2.start();
 

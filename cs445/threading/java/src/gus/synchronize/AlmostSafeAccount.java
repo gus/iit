@@ -19,7 +19,7 @@ public class AlmostSafeAccount implements Account { // Why not just extend GetAN
   }
 
   public static void main (String [] args) {
-    Account account = new AlmostSafeAccount(new GetANewAccount(1000000));
+    Account account = new AlmostSafeAccount(new UnsafeAccount(1000000));
     new MeanMachine("a", account, 25000);
     new MeanMachine("b", account, 50000);
     new MeanMachine("c", account, 50000);

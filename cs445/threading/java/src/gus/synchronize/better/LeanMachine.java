@@ -12,9 +12,8 @@ public class LeanMachine extends Thread {
     start();
   }
 
-  // We could add more code and make this better
   public void run() {
-    WithdrawResponse response = new WithdrawResponse(-1, -1);
+    WithdrawResponse response = new WithdrawResponse(-1, -1); // This is cheating :) Use a NullObject, instead
     while(response.amount != 0) {
       response = account.withdraw(amountToWithdraw);
       printReceipt("Deducted: " + response.amount + " Remaining: " + response.balance);

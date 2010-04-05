@@ -1,10 +1,10 @@
 package gus.synchronize;
 
-// java -cp bin gus.synchronize.GetANewAccount
-public class GetANewAccount implements Account {
+// java -cp bin gus.synchronize.UnsafeAccount
+public class UnsafeAccount implements Account {
   private long balance;
 
-  public GetANewAccount(long startingBalance) {
+  public UnsafeAccount(long startingBalance) {
     this.balance = startingBalance;
   }
 
@@ -25,7 +25,7 @@ public class GetANewAccount implements Account {
   }
 
   public static void main (String [] args) {
-    Account account = new GetANewAccount(1000000);
+    Account account = new UnsafeAccount(1000000);
     new MeanMachine("a", account, 125000);
     new MeanMachine("b", account, 250000);
   }

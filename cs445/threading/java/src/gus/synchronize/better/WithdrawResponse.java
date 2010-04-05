@@ -1,5 +1,6 @@
 package gus.synchronize.better;
 
+// This is essentially a Struct
 public class WithdrawResponse {
   public long amount;
   public long balance;

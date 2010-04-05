@@ -12,7 +12,8 @@ public class SafeAccount implements BetterAccount {
 
   public WithdrawResponse withdraw(long amount) {
     synchronized(account) {
-      return account.withdraw(amount) ? new WithdrawResponse(amount, account.getBalance()) : new WithdrawResponse(0, account.getBalance());
+      long withdrew = account.withdraw(amount) ? amount : 0;
+      return new WithdrawResponse(withdrew, account.getBalance());
     }
   }
 
@@ -21,7 +22,7 @@ public class SafeAccount implements BetterAccount {
   }
 
   public static void main (String [] args) {
-    BetterAccount account = new SafeAccount(new GetANewAccount(1000000));
+    BetterAccount account = new SafeAccount(new UnsafeAccount(1000000));
     new LeanMachine("a", account, 25000);
     new LeanMachine("b", account, 50000);
     new LeanMachine("c", account, 50000);

@@ -1,5 +1,6 @@
 package gus.basic;
 
+// java -cp bin gus.basic.ThreadCounter
 public class ThreadCounter implements Runnable {
   public static int COUNTER = 0;
 

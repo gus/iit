@@ -21,7 +21,7 @@ public class WhoopsThread extends Thread {
     //     System.out.println("interrupted");
     //   }
     // }
-    // System.out.println("stopped");
+    // System.out.println("stopped"); # We'll never reach this line
   }
 
   public static void main(String [] args) {

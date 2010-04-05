@@ -10,8 +10,9 @@ public class UnsafeAccount implements Account {
 
   public boolean withdraw(long amount) {
     if (amount <= balance) {
-      try {Thread.sleep(5);} catch (InterruptedException e) {}
-      // Doing something fancy that takes 5ms
+      try {
+        Thread.sleep(5); // Doing something fancy that takes 5ms
+      } catch (InterruptedException e) {}
       long newbalance = balance - amount;
       this.balance = newbalance;
       return true;

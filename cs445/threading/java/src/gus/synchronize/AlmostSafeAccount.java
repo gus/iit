@@ -9,7 +9,7 @@ public class AlmostSafeAccount implements Account { // Why not just extend GetAN
     this.account = account;
   }
 
-  // What is this synchronized?
+  // What is this synchronized? How do we know this is where we want it?
   public synchronized boolean withdraw(long amount) {
     return account.withdraw(amount);
   }

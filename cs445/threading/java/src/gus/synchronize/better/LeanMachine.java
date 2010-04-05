@@ -12,8 +12,10 @@ public class LeanMachine extends Thread {
     start();
   }
 
+  // Why is this better?
   public void run() {
-    WithdrawResponse response = new WithdrawResponse(-1, -1); // This is cheating :) Use a NullObject, instead
+    // This is cheating :) Use a NullObject, instead
+    WithdrawResponse response = new WithdrawResponse(-1, -1);
     while(response.amount != 0) {
       response = account.withdraw(amountToWithdraw);
       printReceipt("Deducted: " + response.amount + " Remaining: " + response.balance);

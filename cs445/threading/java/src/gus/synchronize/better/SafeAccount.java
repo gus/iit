@@ -13,7 +13,7 @@ public class SafeAccount implements BetterAccount {
   public WithdrawResponse withdraw(long amount) {
     synchronized(account) { // What does synchronized(account) mean?
       long withdrew = account.withdraw(amount) ? amount : 0;
-      return new WithdrawResponse(withdrew, account.getBalance());
+      return new WithdrawResponse(withdrew, getBalance());
     }
   }
 

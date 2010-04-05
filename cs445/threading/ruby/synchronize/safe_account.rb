@@ -4,6 +4,7 @@ require 'synchronize/mean_machine'
 
 #
 # ruby synchronize/main.rb safe
+# ruby1.9 synchronize/main.rb safe
 class SafeAccount
   def initialize(account, semaphore)
     @account = account

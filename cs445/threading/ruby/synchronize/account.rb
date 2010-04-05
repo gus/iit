@@ -2,6 +2,7 @@ require 'synchronize/mean_machine'
 
 #
 # ruby synchronize/main.rb unsafe
+# ruby1.9 synchronize/main.rb unsafe
 class Account
   attr_reader :balance
   

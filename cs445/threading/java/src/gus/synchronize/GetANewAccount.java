@@ -1,5 +1,6 @@
 package gus.synchronize;
 
+// java -cp bin gus.synchronize.GetANewAccount
 public class GetANewAccount implements Account {
   private long balance;
 

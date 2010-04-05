@@ -20,6 +20,6 @@ public class MeanMachine extends Thread {
   }
 
   private void printReceipt(String note) {
-    System.out.println("machine " + name + " - " + note + ": " + String.valueOf(account.getBalance()));
+    System.out.println("machine " + name + " - " + note + ": " + account.getBalance());
   }
 }

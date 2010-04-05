@@ -1,5 +1,6 @@
 package gus.basic;
 
+// java -cp bin gus.basic.UsingAThread
 public class UsingAThread implements Runnable {
   private String message = null;
   private long sleepTimeMs = 0;

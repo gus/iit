@@ -12,12 +12,14 @@ public class LeanMachine extends Thread {
     start();
   }
 
+  // We could add more code and make this better
   public void run() {
-    long remaining = 0;
-    while((remaining = account.withdraw(amountToWithdraw)) > 0) {
-      printReceipt("Deducted: " + amountToWithdraw + " Remaining:" + remaining);
+    WithdrawResponse response = new WithdrawResponse(-1, -1);
+    while(response.amount != 0) {
+      response = account.withdraw(amountToWithdraw);
+      printReceipt("Deducted: " + response.amount + " Remaining: " + response.balance);
     }
-    printReceipt("Final: " + String.valueOf(account.getBalance()));
+    printReceipt("Final: " + account.getBalance());
   }
 
   private void printReceipt(String note) {

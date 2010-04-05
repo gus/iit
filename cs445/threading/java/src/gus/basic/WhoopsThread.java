@@ -1,5 +1,6 @@
 package gus.basic;
 
+// java -cp bin gus.basic.WhoopsThread
 public class WhoopsThread extends Thread {
   private String message = null;
   private long sleepTimeMs = 0;

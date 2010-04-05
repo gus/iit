@@ -1,5 +1,6 @@
 package gus.worker;
 
+// java -cp bin gus.worker.Producer
 public class Producer extends Thread {
   private String name;
   private Consumer consumer;

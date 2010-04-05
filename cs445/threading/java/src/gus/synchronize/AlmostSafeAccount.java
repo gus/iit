@@ -9,13 +9,13 @@ public class AlmostSafeAccount implements Account { // Why not just extend GetAN
     this.account = account;
   }
 
-  public boolean withdraw(long amount) {
-    // What does synchronized(account) mean?
-    synchronized(account) { return account.withdraw(amount); }
+  // What is this synchronized?
+  public synchronized boolean withdraw(long amount) {
+    return account.withdraw(amount);
   }
 
-  public long getBalance() {
-    synchronized(account) { return account.getBalance(); }
+  public synchronized long getBalance() {
+    return account.getBalance();
   }
 
   public static void main (String [] args) {

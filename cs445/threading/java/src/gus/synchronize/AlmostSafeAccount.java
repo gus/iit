@@ -2,7 +2,7 @@ package gus.synchronize;
 
 // java -cp bin gus.synchronize.AlmostSafeAccount
 // Pay attention to the return amount
-public class AlmostSafeAccount implements Account { // Why not just extend GetANewAccount?
+public class AlmostSafeAccount implements Account { // Why not just extend UnsafeAccount?
   private Account account;
 
   public AlmostSafeAccount(Account account) { // What is this design pattern called?

@@ -17,13 +17,13 @@ class Producer
 end
 
 consumer = Consumer.new
-Producer.new("happy", consumer, 5).produce!
-Producer.new("skidmark", consumer, 10).produce!
-Producer.new("dopey", consumer, 8).produce!
+# Producer.new("happy", consumer, 5).produce!
+# Producer.new("skidmark", consumer, 10).produce!
+# Producer.new("dopey", consumer, 8).produce!
 
-# threads = []
-# threads << Thread.new { Producer.new("happy", consumer, 5).produce! }
-# threads << Thread.new { Producer.new("skidmark", consumer, 10).produce! }
-# threads << Thread.new { Producer.new("dopey", consumer, 8).produce! }
-# 
-# threads.each { |t| t.join } # Whoops
+threads = []
+threads << Thread.new { Producer.new("happy", consumer, 5).produce! }
+threads << Thread.new { Producer.new("skidmark", consumer, 10).produce! }
+threads << Thread.new { Producer.new("dopey", consumer, 8).produce! }
+
+threads.each { |t| t.join } # Whoops

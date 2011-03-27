@@ -1,9 +1,11 @@
 var net = require('net');
 
+// Creating a TCP server
 var server = net.createServer(function (socket) {
-  socket.write("Connected to echo server\r\n");
   console.log("Connection from " + socket.remoteAddress);
-  socket.pipe(socket);
+  socket.write("Connected to echo server\r\n");
+
+  socket.pipe(socket); // duplexed stream; writes what it reads
 
   socket.on("data", function (data) {
     console.log("Data received");

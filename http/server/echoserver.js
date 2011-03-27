@@ -16,6 +16,6 @@ var server = net.createServer(function (socket) {
   });
 })
 
-server.listen(8082, "127.0.0.1");
+server.listen(8080, "127.0.0.1");
 
-console.log("Echo Server listening on 127.0.0.1 port 8082");
+console.log("Echo Server listening on 127.0.0.1 port 8080");

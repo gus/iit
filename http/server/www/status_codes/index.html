@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>HTTP Status Codes</title>
+  </head>
+  <body>
+    <p>
+      <a href="/">Home</a>
+    </p>
+
+    <h1>Status Codes</h1>
+    <p>
+      Check out <a href="http://tools.ietf.org/html/rfc2616#section-10">RFC 2616 / Section 10</a>
+    </p>
+
+    <p>
+      Status codes are extremely important in responses as they indicate to the client how it
+      should behave up receipt of the response. These codes are very meaningful, as you will
+      come to find out when you start working with RESTful services.
+    </p>
+
+    <dl>
+      <dt>1XXs - Informational</dt>
+      <dd>
+        I've still not had to use any code in this branch (100 or 101).
+      </dd>
+
+      <dt>2XXs - Successful</dt>
+      <dd>
+        The most common are 200 (OK), 201 (Created), and 204 (No Content).
+      </dd>
+
+      <dt>3XXs - Redirection</dt>
+      <dd>
+        Essentially, these codes tell the client something about the resource's state.
+        301 (Moved Permanently), 302 (Found/Moved Temporarily), and 304 (Not Modified) are common.
+
+        <p>
+          QUESTION: What's another way we could load <code>/status_codes/index.html</code> if
+          <code>/status_codes</code> is requested? Who wants to see what that looks like?
+        </p>
+      </dd>
+
+      <dt>4XXs - Client Error</dt>
+      <dd>
+        Whoops! The client goofed somehow.
+
+        <p>404 (Not Found) is used when the resource cannot be found at all.</p>
+        <p>400 (Bad Request) generally means there was something wrong the request (or invalid data was passed).</p>
+      </dd>
+
+      <dt>5XXs - Server Error</dt>
+      <dd>
+        Something really crazy happened on the server.
+
+        <p>500 (Internal Server Error) - you better implement some fault tolerance into your app.</p>
+      </dd>
+
+    </dl>
+
+    <p>
+      NEXT: <a href="/apps">Speaking of apps</a> ...
+    </p>
+
+  </body>
+</html>
+
+

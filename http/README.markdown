@@ -1,10 +1,19 @@
 # HTTP Notes
 
-* Let's start at just TCP and sockets (echoserver)
+* Let's just start with TCP and sockets (echoserver)
   * Why doesn't `curl` work with echoserver?
+
 * Make `curl` work with httpserver
-* Great, but that's a lot of code (webserver)
+* Great, but that's a lot of code (httpserver2)
+
+* Well, neat, but "Thanks!" isn't all that useful (fileserver)
   * What is HTTP?
 
 * What if you want to attach your language to my webserver? (CGI)
+
+* State: cookies?
+
+* Rails or Sinatra?
+
+* Jersey or Spring?
 

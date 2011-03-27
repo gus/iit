@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>HTTP &amp; CGI</title>
+  </head>
+  <body>
+    <p>
+      <a href="/">Home</a>
+    </p>
+
+    <h1>Common Gateway Interface (CGI)</h1>
+    <p>
+    Check out <a href="http://tools.ietf.org/html/rfc3875">RFC 3875</a>
+    </p>
+
+    <p>
+      CGI is basically a convention for binding HTTP servers to client processing
+      scripts/applications. The HTTP server worries about receiving and responding
+      to the client, wheras the CGI script worries about processing the request:
+
+      <ul>
+        <li>dealing with permissions</li>
+        <li>accessing documents</li>
+        <li>processing data</li>
+        <li>etc.</li>
+      </ul>
+
+      Perl CGIs were all the rage back in the 90s. It's how the web took off. Today,
+      PHP is a very common choice for writing CGI scripts.
+    </p>
+
+    <h2>The Crux</h2>
+    <p>
+      You can write CGI scripts in any language you want, so long as you can run
+      your app from the command line given a few constraints. The flow works like this:
+
+      <ol>
+        <li>Web server receives a request for some resource</li>
+        <li>
+          Web server recognizes that some or all of the path points to a CGI script
+          based on how the web server is configured
+        </li>
+        <li>
+          Web server executes this script by giving it the CGI meta-variables,
+          sending the message body through your scripts STDIN, and reading the response
+          from your STDOUT.
+        </li>
+        <li>Web server then delivers the response to the client after some possible post-processing</li>
+      </ol>
+
+      Your script should expect these things:
+      <ol>
+        <li>
+          HTTP headers and request meta-information will be delivered as environment variables (system-dependent).
+          Ex. <code>REQUEST_METHOD</code>, <code>HTTP_HOST</code>, <code>PATH_INFO</code>, etc.
+        </li>
+
+        <li>The message body will be sent to STDIN</li>
+        <li>Your response, with special response header formatting will be written to STDOUT</li>
+      </ol>
+
+      Most languages have a framework or two already built that make this easy for you.
+    </p>
+
+    <p>
+      NEXT: 
+    </p>
+
+  </body>
+</html>
+

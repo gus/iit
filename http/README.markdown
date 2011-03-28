@@ -23,5 +23,5 @@
 * What if you want to attach your language to my webserver? (CGI)
 
 * Rails
-  * How does rails work (cgi or something else)?
+  * Word on proxying from webservers to running applications
 

@@ -63,7 +63,19 @@
     </p>
 
     <p>
-      NEXT: 
+      NEXT: A simple CGI <a href="http://localhost:8888/echo.cgi/some/file.html" target="_blank">GET example</a>
+    </p>
+
+    <p>
+      OR: A CGI POST example
+    </p>
+    <p>
+      <form method="POST" action="http://localhost:8888/echo.cgi/some/file.html">
+        <div><label>Say Something!</label></div>
+        <div><textarea name="text" rows="10" cols="40"></textarea></div>
+        <input type="hidden" name="sneaky" value="hidden value" />
+        <input type="submit" value="Go!" />
+      </form>
     </p>
 
   </body>

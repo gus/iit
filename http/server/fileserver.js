@@ -4,9 +4,9 @@ var http = require('http'),
     URL  = require('url');
 
 var config = {
-  "root": "./www",
+  "root": "./htdocs",
   "default_file": "/index.html",
-  "404": "./www/404.html"
+  "404": "./htdocs/404.html"
 };
 
 var mapToFile = function(path) {
@@ -16,7 +16,7 @@ var mapToFile = function(path) {
 
     if (stat.isDirectory()) {
       // NOTE: This is by no means a necessary action
-      filename = (filename + config.default_file).replace(/\/\//g, "/"));
+      filename = (filename + config.default_file).replace(/\/\//g, "/");
     } else if (! stat.isFile()) {
       // Well, it's something ... but what is it?
       filename = null;
@@ -33,6 +33,8 @@ var mapToStatus = function(filename) {
   return (filename == undefined) ? [404, config["404"]] : [200, filename];
 }
 
+//
+// Where the magic begins
 http.createServer(function (request, response) {
   var url = URL.parse(request.url),
       statusAndFile = mapToStatus(mapToFile(url.pathname)),
@@ -40,7 +42,7 @@ http.createServer(function (request, response) {
       filename = statusAndFile[1];
 
   response.writeHead(statusCode, {"Content-Type": "text/html"});
-  response.end(fs.readFileSync(filename);
+  response.end(fs.readFileSync(filename));
 
   console.log("Requested [" + request.url + "]");
   console.log("Delivered [" + filename + "]");

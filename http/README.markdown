@@ -8,6 +8,9 @@
 
 * Well, neat, but "Thanks!" isn't all that useful (fileserver)
   * What is HTTP?
+  * ¿¿Request Methods
+  * URIs
+  * Status Codes
 
 * What if you want to attach your language to my webserver? (CGI)
 

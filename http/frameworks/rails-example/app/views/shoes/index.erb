@@ -1,0 +1,16 @@
+<h1>Shoes</h1>
+<dl>
+<% @shoes.each do |shoe| -%>
+  <dt><%= shoe.name %></dt>
+  <dd>Color: <%= shoe.color %></dd>
+  <dd>Size: <%= shoe.size %></dd>
+  <dd><%= shoe.description %></dd>
+  <dd>
+    <%= link_to "Show", shoe %> /
+    <%= link_to "Edit", edit_shoe_path(shoe) %> /
+    <%= link_to "Remove", shoe, :method => :delete %>
+  </dd>
+<% end -%>
+</dl>
+
+<%= link_to "Add a shoe", new_shoe_path %>

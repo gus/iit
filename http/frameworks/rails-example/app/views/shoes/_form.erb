@@ -1,0 +1,40 @@
+<%= form_for @shoe do |f| %>
+  <% if @shoe.errors.any? -%>
+  <div id="errorExplanation">
+    <h2><%= pluralize(@shoe.errors.count, "error") %></h2>
+    <ul>
+    <% @shoe.errors.full_messages.each do |msg| -%>
+      <li><%= msg %></li>
+    <% end -%>
+    </ul>
+  </div>
+  <% end -%>
+  
+  <p>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </p>
+
+  <p>
+    <%= f.label :size %>
+    <%= f.select :size, %w[6 7 8 9 10 11 12 13+] %>
+  </p>
+
+  <p>
+    <%= f.label :color %>
+    <%= f.select :color, %w[white black white/black gray blue/red] %>
+  </p>
+
+  <p>
+    <div><%= f.label :description %></div>
+    <%= f.text_area :description %>
+  </p>
+
+  <%= f.submit %>
+  <% if @shoe.new_record? -%>
+    <%= link_to "Cancel", shoes_path %>
+  <% else -%>
+    <%= link_to "Cancel", @shoe %>
+  <% end -%>
+<% end -%>
+

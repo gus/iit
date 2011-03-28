@@ -1,0 +1,8 @@
+#errorExplanation, .field_with_errors {
+  color: #c00;
+}
+
+dl dt {
+  font-weight: bold;
+}
+

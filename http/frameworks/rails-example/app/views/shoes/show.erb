@@ -1,0 +1,15 @@
+<%= link_to "All Shoes", shoes_path %>
+
+<h1><%= @shoe.name %></h1>
+
+<div>Color: <%= @shoe.color %></div>
+
+<div>Size: <%= @shoe.size %></div>
+
+<p><%= @shoe.description %></p>
+
+<div>
+  <%= link_to "Edit", edit_shoe_path(@shoe) %> /
+  <%= link_to "Remove", @shoe, :method => :delete %>
+</div>
+

@@ -3,12 +3,14 @@ var http = require('http'),
     fs   = require('fs'),
     URL  = require('url');
 
+// Configuring our server
 var config = {
   "root": "./htdocs",
   "default_file": "/index.html",
   "404": "./htdocs/404.html"
 };
 
+// Creating a real file path to load ... or nothing
 var mapToFile = function(path) {
   var filename = config.root + path;
   try {
@@ -28,7 +30,7 @@ var mapToFile = function(path) {
   return filename;
 };
 
-// This is a very basic status mapper
+// Map the filename (or lack thereof) to a HTTP status
 var mapToStatus = function(filename) {
   return (filename == undefined) ? [404, config["404"]] : [200, filename];
 }

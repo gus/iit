@@ -23,3 +23,8 @@ var server = net.createServer(function (socket) {
 server.listen(8080, "127.0.0.1");
 
 console.log("HTTP Server listening on 127.0.0.1 port 8080");
+
+/*
+ * Try running it in the browser
+ */
+

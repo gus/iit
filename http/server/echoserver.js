@@ -19,3 +19,9 @@ var server = net.createServer(function (socket) {
 server.listen(8080, "127.0.0.1");
 
 console.log("Echo Server listening on 127.0.0.1 port 8080");
+
+/*
+ * What happens when we hit this with curl?
+ * curl -v "http://localhost:8080/"
+ */
+

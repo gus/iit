@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>HTTP Cookies</title>
+  </head>
+  <body>
+    <p>
+      <a href="/">Home</a>
+    </p>
+
+    <h1>Maintaining Client State in HTTP</h1>
+    <p>
+      Check out <a href="http://tools.ietf.org/html/rfc2109">RFC 2109</a>.
+      You should also take a look at <a href="http://tools.ietf.org/html/rfc2965">RFC 2965</a>, which defines a possible future for Cookies.
+    </p>
+
+    <p>
+      If you want to be able to "track" an individual client across
+      many requests, you're probably going to want to use HTTP Cookies.
+      Cookies are not part of the HTTP specification, but thanks to the
+      flexibility of HTTP, Cookies can exist.
+    </p>
+
+    <p>
+      Basically, the server writes to a header called
+      <code>Set-Cookie</code> in a response. In the value will be details
+      about the specific cookie. The client (i.e. the browser)
+      specifically knows about this special header and will store the
+      data. On subsequent requests to that <code>host:port</code>
+      and <code>path</code>, the browser will send down the previously
+      stored Cookie(s) in a request header. The server can see these
+      and thus make decisions.
+    </p>
+
+    <h2>What's in a Set-Cookie header?</h2>
+    <dl>
+      <dt>NAME=VALUE</dt>
+      <dd>
+        The name of your cookie and a value you want to record.
+        This is required.
+      </dd>
+
+      <dt>version=number</dt>
+      <dd>
+        The HTTP Cookie spec this cookie adheres to; just set it to "1".
+        This is required.
+      </dd>
+
+      <dt>domain=domain-name</dt>
+      <dd>
+        The domain this cookie is to be used with.
+        <code>www.example.com</code> is not the same as
+        <code>.example.com</code>.
+      </dd>
+
+      <dt>path=url-path</dt>
+      <dd>
+        The path prefix that this cookie is to be used with. To work
+        with any path, use <code>/</code> or don't define this field.
+        Setting <code>path=/foo/bar</code> would mean that the cookie
+        would not work with <code>/</code> or even </code>/foo</code>.
+      </dd>
+
+      <dt>max-age=seconds</dt>
+      <dd>
+        The number of seconds (form now) the cookie is valid for.
+        Defining no max-age is akin to a session cookie, meaning the
+        client can throw the cookie away when the user closes the
+        browser (for instance). It is the client's responsibility to
+        enforce this time limit.
+      </dd>
+
+      <dt>comments=string</dt>
+      <dd>
+        A description of what the cookie is used by the server for.
+        Not often used.
+      </dd>
+
+      <dt>secure</dt>
+      <dd>
+        This is a valueless attribute whose existence declares that
+        the cookie should only be used in secure communications.
+        Generally, this means HTTPS.
+      </dd>
+
+    </dl>
+  
+    <h2>What you'll get back</h2>
+    <dl>
+      <dt>NAME=VALUE[; NAME=VALUE]*</dt>
+      <dd>
+        On the next and perhaps subsequent requests (should the cookie still be alive)
+        you'll receive a series of appropriate key=value pairs of cookies in a header
+        named <code>Cookie</code>.
+      </dd>
+    </dl>
+
+    <p>
+      NEXT: <a href="/apps">Still speaking of apps</a> ...
+    </p>
+
+  </body>
+</html>
+

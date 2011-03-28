@@ -43,11 +43,15 @@ http.createServer(function (request, response) {
       statusCode = statusAndFile[0],
       filename = statusAndFile[1];
 
-  response.writeHead(statusCode, {"Content-Type": "text/html"});
+  response.writeHead(statusCode, {
+    "Content-Type": "text/html",
+    "Set-Cookie": "session_value=" + url.pathname + "; path=/; max-age=60"
+  });
   response.end(fs.readFileSync(filename));
 
-  console.log("Requested [" + request.url + "]");
+  console.log("\nRequested [" + request.url + "]");
   console.log("Delivered [" + filename + "]");
+  console.log("Cookies [" + request.headers.cookie + "]");
 }).listen(8080, "127.0.0.1");
 
 console.log("Fancy file server running at http://127.0.0.1:8080/");

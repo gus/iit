@@ -1,0 +1,17 @@
+<%= form_for @drink do |f| %>
+  <% if @drink.errors.any? -%>
+  <div id="errorExplanation">
+    <h2><%= pluralize(@drink.errors.count, "error") %></h2>
+    <ul>
+    <% @drink.errors.full_messages.each do |msg| -%>
+      <li><%= msg %></li>
+    <% end -%>
+    </ul>
+  </div>
+  <% end -%>
+  
+  <%= f.label :amount %>
+  <%= f.text_field :amount %>
+  <%= f.submit %>
+<% end -%>
+

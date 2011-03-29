@@ -1,7 +1,6 @@
 class ShoesController < ApplicationController
   # GET /shoes
   def index 
-    @new_shoe = Shoe.new
     @shoes = Shoe.all
   end
 

@@ -11,7 +11,12 @@ var server = net.createServer(function (socket) {
     var request = new Gus.Request(data.toString());
     console.log(util.inspect(request));
 
-    socket.write("HTTP/1.1 200 OK\r\nContent-Length: 8\r\n\r\nThanks!\n");
+    var responseBody = "<html><body>hello</body></html>";
+    socket.write("HTTP/1.1 200 OK\r\n" +
+      "Content-Type: text/html\r\n" +
+      "Content-Length: " + responseBody.length+ "\r\n\r\n" +
+      responseBody);
+    //socket.write("HTTP/1.1 200 OK\r\nContent-Length: 8\r\n\r\nThanks!\n");
   });
 
   socket.on("close", function (data) {

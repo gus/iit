@@ -1,0 +1,9 @@
+<h1>Drinks</h1>
+
+<ul>
+<% @drinks.each do |drink| -%>
+  <li><%= drink.amount %></li>
+<% end -%>
+</ul>
+
+<%= link_to "Take a drink", new_drink_path %>
